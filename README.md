@@ -6,6 +6,7 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
 
 - **Generate TypeScript Clients:**  
   Automatically create clients that match your OpenAPI specs in two modes:
+
   - **OOP Mode (default):** Generates object-oriented clients.
   - **Functional Mode:** Generates functional clients using customizable templates from `/public/templates`.
 
@@ -14,6 +15,7 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
 
 - **HTTP Client Options:**  
   Choose between:
+
   - `fetch` (default)
   - `axios` (with configurable axios version)
 
@@ -69,13 +71,15 @@ Here’s a breakdown of the available options:
   _Required._ You can also set this via the `OPENAPI_URL` environment variable.
 
 - **`--mode <string>`**  
-  Choose the client generation mode:  
+  Choose the client generation mode:
+
   - `oop` (default) – Generates an object-oriented client.
   - `functional` – Generates a functional client using templates from `/public/templates`.
-  > if mode is set to functional the `/[generated-path]/base.ts` file exports a functional called `updateGlobalConfiguration` to set your configurations globally 
+    > if mode is set to functional the `/[generated-path]/base.ts` file exports a functional called `updateGlobalConfiguration` to set your configurations globally
 
 - **`--client <string>`**  
-  Select the HTTP client library:  
+  Select the HTTP client library:
+
   - `fetch` (default)
   - `axios`
 
