@@ -1,8 +1,4 @@
-import type {
-	CUSTOM_OPERATION_COMMANDS,
-	CUSTOM_OPERATION_FORMATTERS,
-	optionsSchema
-} from "$/client-generator/schema";
+import type { CUSTOM_OPERATION_FORMATTERS, optionsSchema } from "$/client-generator/schema";
 import { mkdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
 import type { z } from "zod";

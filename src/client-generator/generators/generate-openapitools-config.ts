@@ -2,7 +2,7 @@ import { spawn } from "child_process";
 import { resolve as resolvePath } from "path";
 import type { ConfigWithModifiedSpec } from "$/client-generator/generators/types";
 
-export async function generateAxiosClients(config: ConfigWithModifiedSpec) {
+export async function generateClients(config: ConfigWithModifiedSpec) {
 	return new Promise((resolve) => {
 		const cmd = spawn(
 			"pnpm",
@@ -16,14 +16,13 @@ export async function generateAxiosClients(config: ConfigWithModifiedSpec) {
 				`typescript-${config.client}`,
 				config.mode === "functional"
 					? `-t ${resolvePath(import.meta.dirname, `templates/${config.client}`)}`
-					: "undefined",
+					: "",
 				...[config.skipSpecValidations ? "--skip-validate-spec" : ""],
 				"--input-spec",
 				config.modifiedSpecPath,
 				"--additional-properties",
-				`supportsES6=true,ensureUniqueParams=true,legacyDiscriminatorBehavior=false,modelPackage=models,
-        apiPackage=apis,withSeparateModelsAndApi=true,${
-					config.client === "axios" ? `axiosVersion=${config.axiosVersion}` : ""
+				`supportsES6=true,ensureUniqueParams=true,legacyDiscriminatorBehavior=false,modelPackage=models,apiPackage=apis,withSeparateModelsAndApi=true${
+					config.client === "axios" ? `,axiosVersion=${config.axiosVersion}` : ""
 				}`
 			],
 			{
