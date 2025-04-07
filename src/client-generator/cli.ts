@@ -72,5 +72,9 @@ export function setupCommand() {
 }
 
 export function call(obj: object) {
+	const parsed = optionsSchema.parse(obj);
+	if (parsed.client === "fetch" && parsed.mode === "functional") {
+		throw new Error("functional clients are only supported on axios for now");
+	}
 	generate(optionsSchema.parse(obj));
 }
