@@ -15,5 +15,5 @@
 		}
 	},
 	"include": ["./src/**/*.ts"],
-	"exclude": ["node_modules", "dist", ".generated", "./eslint.config.mjs", "./vite.config.ts"]
+	"exclude": ["node_modules", "dist", ".tmp", "./eslint.config.mjs", "./vite.config.ts"]
 }
