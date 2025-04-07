@@ -1,7 +1,6 @@
 import { generate } from "$/client-generator/generate";
 import { CUSTOM_OPERATION_COMMANDS, optionsSchema } from "$/client-generator/schema";
 import { program, Option, Command } from "commander";
-import { z } from "zod";
 
 /**
  * @returns the created command
@@ -14,7 +13,16 @@ export function setupCommand() {
 				.env("OPENAPI_URL")
 				.makeOptionMandatory(true)
 		)
-		.addOption(new Option("--axios-version <string>", "axios version").default("1.7.0"))
+		.addOption(
+			new Option("--mode <string>", "generated output should be functional or oop").default("oop")
+		)
+		.addOption(new Option("--client <string>", "axios or fetch").default("fetch"))
+		.addOption(
+			new Option(
+				"--axios-version <string>",
+				"axios version (only acceptable when client is set to axios)"
+			).default("1.7.0")
+		)
 		.addOption(new Option("--out <string>", "output directory").default("src/generated-clients"))
 		.addOption(
 			new Option(
