@@ -41,13 +41,13 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
 Install the CLI via pnpm:
 
 ```bash
-pnpm i @fohoov/ts-client-generator
+pnpm i @fohoov/zod-openapi-client
 ```
 
 Or run it without installing using:
 
 ```bash
-pnpm dlx @fohoov/ts-client-generator --help
+pnpm dlx @fohoov/zod-openapi-client --help
 ```
 
 ## Usage

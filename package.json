@@ -1,13 +1,13 @@
 {
-	"name": "@fohoov/ts-client-generator",
+	"name": "@fohoov/zod-openapi-client",
 	"version": "0.0.1",
 	"type": "module",
-	"description": "command line tools for creating ts clients from openapi sepc files",
+	"description": "command line tools for creating ts with zod clients from openapi sepc files",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FoHoOV/ts-client-generator",
+		"url": "git+https://github.com/FoHoOV/zod-openapi-client",
 		"directory": "packages/cli"
 	},
 	"contributors": [
