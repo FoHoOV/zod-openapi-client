@@ -72,6 +72,7 @@ Here’s a breakdown of the available options:
   Choose the client generation mode:  
   - `oop` (default) – Generates an object-oriented client.
   - `functional` – Generates a functional client using templates from `/public/templates`.
+  > if mode is set to functional the `/[generated-path]/base.ts` file exports a functional called `updateGlobalConfiguration` to set your configurations globally 
 
 - **`--client <string>`**  
   Select the HTTP client library:  
