@@ -1,6 +1,6 @@
 {
 	"name": "@fohoov/zod-openapi-client",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"type": "module",
 	"description": "command line tools for creating ts with zod clients from openapi sepc files",
 	"author": "@FoHoOV",
