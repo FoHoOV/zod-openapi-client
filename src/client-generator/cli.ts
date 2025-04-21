@@ -6,7 +6,7 @@ import { program, Option, Command } from "commander";
  * @returns the created command
  */
 export function setupCommand() {
-	const command = new Command("generate-clients");
+	const command = new Command("generate");
 	command
 		.addOption(
 			new Option("--uri <uri>", "openapi json spec address")
@@ -56,9 +56,21 @@ export function setupCommand() {
 		)
 		.addOption(
 			new Option(
-				"--overwrite-existing-operation-ids",
+				"--overwrite-existing-operation-ids <boolean>",
 				"if needed, used in combination with '--customize-operation-id'."
 			)
+		)
+		.addOption(
+			new Option(
+				"--additional-openapitools-options <string>",
+				"gets directly passed to `--additional-properties` of openapitools, ie you can add x=true,y=false"
+			).default(undefined)
+		)
+		.addOption(
+			new Option(
+				"--include-zod-endpoint-to-schema-output <boolean>",
+				"if the zod schema generator should include path->schema output or not"
+			).default(false)
 		)
 		.addHelpText(
 			"afterAll",
@@ -67,7 +79,9 @@ export function setupCommand() {
 		.action((options) => {
 			call(options);
 		});
-	program.addCommand(command);
+	program.addCommand(command, {
+		isDefault: true
+	});
 	return command;
 }
 

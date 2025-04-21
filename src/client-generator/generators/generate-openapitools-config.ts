@@ -22,11 +22,12 @@ export async function generateClients(config: ConfigWithModifiedSpec) {
 				config.modifiedSpecPath,
 				"--additional-properties",
 				`supportsES6=true,ensureUniqueParams=true,legacyDiscriminatorBehavior=false,modelPackage=models,apiPackage=apis,withSeparateModelsAndApi=true${
-					config.client === "axios" ? `,axiosVersion=${config.axiosVersion}` : ""
-				}`
+					config.additionalOpenapitoolsOptions ? `,${config.additionalOpenapitoolsOptions}` : ""
+				}${config.client === "axios" ? `,axiosVersion=${config.axiosVersion}` : ""}`
 			],
 			{
-				shell: true
+				shell: true,
+				cwd: resolvePath(import.meta.dirname)
 			}
 		);
 

@@ -22,17 +22,22 @@ async function runTypedOpenApi(config: ConfigWithModifiedSpec) {
 export async function generateZodSchemas(config: ConfigWithModifiedSpec) {
 	const contents = await runTypedOpenApi(config);
 
-	const groups = Array.from(
+	const matches = Array.from(
 		contents.matchAll(
-			/^([\s\S]*)\/\/ <\/ApiClientTypes>\n\n\/\/ <ApiClient>\nexport class ApiClient \{[\s\S]*\/\/ <\/ApiClient/g
+			/^([\s\S]*)(\n\n\/\/ <EndpointByMethod>\n[\s\S]*\n\/\/ <\/EndpointByMethod\.Shorthands>\n\n)(\/\/ <ApiClientTypes>\n[\s\S]*\n\n\/\/ <\/ApiClientTypes>)/g
 		)
 	);
 
-	if (groups.length > 1) {
+	if (matches.length !== 1) {
 		throw new Error("couldn't extract zod schemas: matched more than one schemas regex");
 	}
 
-	const output = groups[0][1];
+	if (matches[0].length !== 4) {
+		throw new Error("ts-to-zod output didn't match the expected regex");
+	}
+
+	const [_all, schemas, endpointToSchema, _client] = matches[0];
+	const output = config.includeZodEndpointToSchemaOutput ? schemas + endpointToSchema : schemas;
 
 	const OUTPUT_SCHEMA_FILE_NAME = "schemas.ts";
 	const SCHEMA_FOLDER_PATH = `${config.out}/zod`;

@@ -21,8 +21,8 @@
 	],
 	"scripts": {
 		"build": "tsc --build && vite build",
-		"dev-axios": "vite build && node ./dist/cli.js generate-clients --client axios --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/axios",
-		"dev-fetch": "vite build && node ./dist/cli.js generate-clients --client fetch --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/fetch",
+		"dev-axios": "vite build && node ./dist/cli.js --client axios --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/axios",
+		"dev-fetch": "vite build && node ./dist/cli.js --client fetch --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/fetch",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
