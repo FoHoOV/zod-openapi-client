@@ -123,7 +123,7 @@ pnpm exec client-generator --uri "https://api.example.com/openapi.json" --mode o
 ### 2. Generate a Functional Client with Axios, Custom Operation IDs, and Zod Schemas
 
 ```bash
-pnpm exec client-generator --uri "https://api.example.com/openapi.json" --mode functional --customize-operation-id true --overwrite-existing-operation-ids --client axios --axios-version "1.7.0"
+pnpm exec client-generator --uri "https://api.example.com/openapi.json" --mode functional --client axios --axios-version "1.7.0"
 ```
 
 ### 3. Remove an Endpoint Prefix and Apply Regex Replacement
