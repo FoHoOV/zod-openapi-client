@@ -26,8 +26,7 @@ export async function generateClients(config: ConfigWithModifiedSpec) {
 				}${config.client === "axios" ? `,axiosVersion=${config.axiosVersion}` : ""}`
 			],
 			{
-				shell: true,
-				cwd: resolvePath(import.meta.dirname)
+				shell: true
 			}
 		);
 
