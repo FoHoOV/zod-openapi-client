@@ -14,7 +14,13 @@ async function runTypedOpenApi(config: ConfigWithModifiedSpec) {
 		openApiDoc: openApiDoc,
 		disableWriteToFile: true,
 		templatePath: resolvePath(import.meta.dirname, `templates/openapi-zod/template.hbs`),
-		options: { withAlias: true, exportSchemas: true, withDeprecatedEndpoints: true, withDocs: true }
+		options: {
+			withAlias: true,
+			exportSchemas: true,
+			withDeprecatedEndpoints: true,
+			withDocs: true,
+			additionalPropertiesDefaultValue: false
+		}
 	});
 
 	console.log(`Done in ${new Date().getTime() - now.getTime()}ms!`);
