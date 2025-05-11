@@ -1,5 +1,11 @@
 # @fohoov/zod-openapi-client
 
+## 1.1.2
+
+### Patch Changes
+
+- 823bd1b: fix: add quotes around names since they might be invalid js names
+
 ## 1.1.1
 
 ### Patch Changes
