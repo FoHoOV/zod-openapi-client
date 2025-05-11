@@ -1,5 +1,11 @@
 # @fohoov/zod-openapi-client
 
+## 1.0.0
+
+### Major Changes
+
+- 4880d6c: feat: use openapi-zod-client with customized template which is much better lib and adds the default/min/max and others to schemas
+
 ## 0.1.1
 
 ### Patch Changes
