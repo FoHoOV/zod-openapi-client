@@ -1,5 +1,11 @@
 # @fohoov/zod-openapi-client
 
+## 1.1.1
+
+### Patch Changes
+
+- a1c78dc: fix: don't passthrough by default
+
 ## 1.1.0
 
 ### Minor Changes
