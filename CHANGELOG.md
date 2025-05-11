@@ -1,5 +1,11 @@
 # @fohoov/zod-openapi-client
 
+## 1.1.0
+
+### Minor Changes
+
+- 1c472ad: feat: include response and errors in exported schemas by operationId
+
 ## 1.0.0
 
 ### Major Changes
