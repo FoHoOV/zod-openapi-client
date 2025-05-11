@@ -18,7 +18,7 @@ export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schem
   {{#if alias}}alias: "{{alias}}",{{/if}}
   {{#if requestFormat}}requestFormat: "{{requestFormat}}",{{/if}}
   {{!-- ==== query params ==== --}}
-  {{#eachByType parameters "Query"}}
+  {{#fohoovEachByType parameters "Query"}}
     {{#if @first}}
   query: z.object({
     {{/if}}
@@ -26,9 +26,9 @@ export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schem
     {{#if @last}}
   }),
     {{/if}}
-  {{/eachByType}}
+  {{/fohoovEachByType}}
   {{!-- ==== path params ==== --}}
-  {{#eachByType parameters "Path"}}
+  {{#fohoovEachByType parameters "Path"}}
     {{#if @first}}
   params: z.object({
     {{/if}}
@@ -36,13 +36,29 @@ export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schem
     {{#if @last}}
   }),
     {{/if}}
-  {{/eachByType}}
+  {{/fohoovEachByType}}
   {{!-- ==== body (only one) ==== --}}
-  {{#eachByType parameters "Body"}}
+  {{#fohoovEachByType parameters "Body"}}
     {{#if @first}}
   body: {{{schema}}},
     {{/if}}
-  {{/eachByType}}
+  {{/fohoovEachByType}}
+  response: {{response}},
+  errors: [
+  {{#each errors}}
+  {
+    {{#ifeq status "default" }}
+    status: "default",
+    {{else}}
+    status: {{status}},
+    {{/ifeq}}
+    {{#if description}}
+    description: `{{description}}`,
+    {{/if}}
+    schema: {{{schema}}}
+  },
+  {{/each}}
+]
 } as const;
 
 {{/each}}

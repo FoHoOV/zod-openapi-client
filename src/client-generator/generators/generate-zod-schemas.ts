@@ -52,7 +52,7 @@ function registerGlobalHandlebarHelper() {
 		const instance = originalCreate.apply(this, args);
 
 		instance.registerHelper(
-			"eachByType",
+			"fohoovEachByType",
 			function (parameters: unknown, type: string, options: HelperOptions): string {
 				// make sure we actually have an array of params
 				if (!Array.isArray(parameters)) {
