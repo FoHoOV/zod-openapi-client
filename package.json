@@ -45,9 +45,10 @@
 		"@apidevtools/swagger-parser": "^10.1.0",
 		"@openapitools/openapi-generator-cli": "^2.15.0",
 		"commander": "^12.1.0",
+		"handlebars": "^4.7.8",
+		"openapi-zod-client": "^1.18.3",
 		"openapi3-ts": "^4.4.0",
 		"ts-to-zod": "^3.13.0",
-		"typed-openapi": "^0.9.0",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
@@ -65,7 +66,7 @@
 		"vite-tsconfig-paths": "^5.1.4"
 	},
 	"peerDependencies": {
-		"@openapitools/openapi-generator-cli": "^2.15.0"
+		"@openapitools/openapi-generator-cli": ">=2.15.0"
 	},
 	"publishConfig": {
 		"access": "public"

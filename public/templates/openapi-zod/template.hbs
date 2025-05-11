@@ -1,0 +1,48 @@
+import { z } from "zod";
+
+{{#if types}}
+  {{#each types}}
+    {{{this}}};
+  {{/each}}
+{{/if}}
+
+{{#each schemas}}
+  export const {{@key}}{{#if (lookup ../emittedType @key)}}: z.ZodType<{{@key}}>{{/if}} = {{{this}}};
+{{/each}}
+
+{{!-- === per‐operation schema exports === --}}
+{{#each endpoints}}
+export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schema = {
+  method: "{{method}}",
+  path:   "{{path}}",
+  {{#if alias}}alias: "{{alias}}",{{/if}}
+  {{#if requestFormat}}requestFormat: "{{requestFormat}}",{{/if}}
+  {{!-- ==== query params ==== --}}
+  {{#eachByType parameters "Query"}}
+    {{#if @first}}
+  query: z.object({
+    {{/if}}
+    {{name}}: {{{schema}}}{{#unless @last}},{{/unless}}
+    {{#if @last}}
+  }),
+    {{/if}}
+  {{/eachByType}}
+  {{!-- ==== path params ==== --}}
+  {{#eachByType parameters "Path"}}
+    {{#if @first}}
+  params: z.object({
+    {{/if}}
+    {{name}}: {{{schema}}}{{#unless @last}},{{/unless}}
+    {{#if @last}}
+  }),
+    {{/if}}
+  {{/eachByType}}
+  {{!-- ==== body (only one) ==== --}}
+  {{#eachByType parameters "Body"}}
+    {{#if @first}}
+  body: {{{schema}}},
+    {{/if}}
+  {{/eachByType}}
+} as const;
+
+{{/each}}

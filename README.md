@@ -36,7 +36,6 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
 - **Node.js & PNPM:**  
   Make sure Node.js is installed. We recommend using [pnpm](https://pnpm.io/) as your package manager.
 - **Install the `@openapitools/openapi-generator-cli` npm package**
-- **Install the `openapi-zod-client` npm package**
 
 ## Installation
 

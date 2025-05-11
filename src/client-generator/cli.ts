@@ -66,12 +66,6 @@ export function setupCommand() {
 				"gets directly passed to `--additional-properties` of openapitools, ie you can add x=true,y=false"
 			).default(undefined)
 		)
-		.addOption(
-			new Option(
-				"--include-zod-endpoint-to-schema-output <boolean>",
-				"if the zod schema generator should include path->schema output or not"
-			).default(false)
-		)
 		.addHelpText(
 			"afterAll",
 			"\n* in order to ignore generating some apis or models, consider using the `.openapi-generator-ignore` file"

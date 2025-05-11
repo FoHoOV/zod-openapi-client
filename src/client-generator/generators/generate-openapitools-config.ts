@@ -34,6 +34,10 @@ export async function generateClients(config: ConfigWithModifiedSpec) {
 			console.log(data.toString());
 		});
 
+		cmd.stderr.on("data", (data) => {
+			console.error(data.toString());
+		});
+
 		cmd.on("error", (error) => {
 			console.error(error.message);
 		});

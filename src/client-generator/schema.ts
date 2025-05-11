@@ -64,8 +64,7 @@ export const sharedOptionsSchema = z.object({
 			)[];
 		}),
 	overwriteExistingOperationIds: z.boolean({ coerce: true }).optional(),
-	additionalOpenapitoolsOptions: z.string().optional(),
-	includeZodEndpointToSchemaOutput: z.boolean({ coerce: true }).optional()
+	additionalOpenapitoolsOptions: z.string().optional()
 });
 
 export const optionsSchema = z.discriminatedUnion("client", [
