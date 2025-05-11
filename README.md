@@ -1,6 +1,6 @@
 # TypeScript Client Generator CLI
 
-A powerful command-line tool for generating TypeScript API clients and Zod schemas directly from your OpenAPI specifications. This CLI leverages the OpenApiTools engine to create robust clients in both object-oriented (OOP) and functional styles, and it also produces Zod schemas for runtime type validation using [ts-to-zod](https://github.com/fabien0102/ts-to-zod) (credit to Fabien0102).
+A powerful command-line tool for generating TypeScript API clients and Zod schemas directly from your OpenAPI specifications. This CLI leverages the OpenApiTools engine to create robust clients in both object-oriented (OOP) and functional styles, and it also produces Zod schemas for runtime type validation using [openapi-zod-client](https://github.com/astahmer/openapi-zod-client) (credit to astahmer).
 
 ## Features
 
@@ -8,10 +8,10 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
   Automatically create clients that match your OpenAPI specs in two modes:
 
   - **OOP Mode (default):** Generates object-oriented clients.
-  - **Functional Mode:** Generates functional clients using customizable templates from `/public/templates`.
+  - **Functional Mode:** Generates functional clients using customized templates from `/public/templates`.
 
 - **Zod Schema Generation:**  
-  In addition to client generation, this CLI also creates Zod schemas from your API types for runtime type validation. This feature uses the [ts-to-zod](https://github.com/fabien0102/ts-to-zod) library (credit to Fabien0102).
+  In addition to client generation, this CLI also creates Zod schemas from your API types for runtime type validation. This feature uses the [openapi-zod-client](https://github.com/astahmer/openapi-zod-client) (credit to astahmer).
 
 - **HTTP Client Options:**  
   Choose between:
@@ -35,6 +35,8 @@ A powerful command-line tool for generating TypeScript API clients and Zod schem
 
 - **Node.js & PNPM:**  
   Make sure Node.js is installed. We recommend using [pnpm](https://pnpm.io/) as your package manager.
+- **Install the `@openapitools/openapi-generator-cli` npm package**
+- **Install the `openapi-zod-client` npm package**
 
 ## Installation
 
