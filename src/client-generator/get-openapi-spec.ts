@@ -59,7 +59,7 @@ function modifySpec(spec: OpenAPIObject, config: Config) {
 		? config.replaceEndpointRegex.reduce(
 				(prevSpec, pair) => replacePrefixes(prevSpec, pair[0], pair[1]),
 				spec
-		  )
+			)
 		: spec;
 
 	return config.removeEndpointPrefix

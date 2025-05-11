@@ -22,7 +22,7 @@ export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schem
     {{#if @first}}
   query: z.object({
     {{/if}}
-    {{name}}: {{{schema}}}{{#unless @last}},{{/unless}}
+    "{{name}}": {{{schema}}}{{#unless @last}},{{/unless}}
     {{#if @last}}
   }),
     {{/if}}
@@ -32,7 +32,7 @@ export const {{#if alias}}{{alias}}{{else}}{{operation.operationId}}{{/if}}Schem
     {{#if @first}}
   params: z.object({
     {{/if}}
-    {{name}}: {{{schema}}}{{#unless @last}},{{/unless}}
+    "{{name}}": {{{schema}}}{{#unless @last}},{{/unless}}
     {{#if @last}}
   }),
     {{/if}}

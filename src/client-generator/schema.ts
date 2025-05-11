@@ -20,14 +20,13 @@ export const sharedOptionsSchema = z.object({
 			message: "this prop should have two values separated by comma"
 		})
 		.transform((value) => {
-			return value?.map(
-				(pair) =>
-					pair?.split(",").map((v, i) => {
-						if (i == 0) {
-							return RegExp(v.trim(), "g");
-						}
-						return v.trim();
-					})
+			return value?.map((pair) =>
+				pair?.split(",").map((v, i) => {
+					if (i == 0) {
+						return RegExp(v.trim(), "g");
+					}
+					return v.trim();
+				})
 			) as [RegExp, string][];
 		}),
 	skipSpecValidations: z.boolean({ coerce: true }).optional(),

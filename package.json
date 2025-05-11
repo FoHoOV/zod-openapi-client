@@ -23,6 +23,7 @@
 		"build": "tsc --build && vite build",
 		"dev-axios": "vite build && node ./dist/cli.js --client axios --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/axios",
 		"dev-fetch": "vite build && node ./dist/cli.js --client fetch --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/fetch",
+		"dev-keycloak": "vite build && node ./dist/cli.js --uri https://www.keycloak.org/docs-api/26.2.0/rest-api/openapi.json --out ./.tmp/keycloak-axios --client axios --skip-spec-validations true --additional-openapitools-options useSingleRequestParameter=true",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
