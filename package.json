@@ -25,6 +25,7 @@
 		"dev-fetch": "vite build && node ./dist/cli.js --client fetch --uri https://project-management-fohoov-backend.vercel.app/openapi.json --out ./.tmp/fetch",
 		"dev-keycloak": "vite build && node ./dist/cli.js --uri https://www.keycloak.org/docs-api/26.2.0/rest-api/openapi.json --out ./.tmp/keycloak-axios --client axios --skip-spec-validations true --additional-openapitools-options useSingleRequestParameter=true",
 		"lint": "eslint .",
+		"test": "vitest run",
 		"format": "prettier --write ."
 	},
 	"exports": {
@@ -49,8 +50,7 @@
 		"handlebars": "^4.7.8",
 		"openapi-zod-client": "^1.18.3",
 		"openapi3-ts": "^4.4.0",
-		"ts-to-zod": "^3.13.0",
-		"zod": "^3.23.8"
+		"zod": "^4.6.7"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.28.1",
@@ -63,9 +63,10 @@
 		"prettier": "^3.5.3",
 		"typescript": "~5.6.3",
 		"typescript-eslint": "^8.8.1",
-		"vite": "^6.1.0",
+		"vite": "^6.4.4",
 		"vite-plugin-dts": "^4.5.0",
-		"vite-tsconfig-paths": "^5.1.4"
+		"vite-tsconfig-paths": "^5.1.4",
+		"vitest": "^5.0.5"
 	},
 	"peerDependencies": {
 		"@openapitools/openapi-generator-cli": ">=2.15.0"

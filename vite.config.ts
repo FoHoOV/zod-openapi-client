@@ -18,7 +18,8 @@ export default defineConfig({
 	plugins: [
 		tsconfigPaths(),
 		dts({
-			insertTypesEntry: true
+			insertTypesEntry: true,
+			exclude: ["**/*.test.ts"]
 		})
 	]
 });

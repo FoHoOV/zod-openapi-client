@@ -36,5 +36,9 @@ export default tseslint.config(
 			]
 		}
 	},
+	{
+		files: ["**/*.test.ts"],
+		rules: { "n/no-unpublished-import": "off" }
+	},
 	{ ignores: [".tmp/", "dist/"] }
 );

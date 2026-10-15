@@ -5,11 +5,14 @@ import type { ConfigWithModifiedSpec } from "$/client-generator/generators/types
 import { generateZodClientFromOpenAPI } from "openapi-zod-client";
 import type { OpenAPIObject } from "openapi3-ts/oas30";
 import Handlebars, { type HelperOptions } from "handlebars";
+import { normalizeNullableUnions } from "$/client-generator/generators/normalize-nullable-unions";
 
 async function runTypedOpenApi(config: ConfigWithModifiedSpec) {
 	const now = new Date();
 	registerGlobalHandlebarHelper();
-	const openApiDoc = (await SwaggerParser.bundle(config.modifiedSpecPath)) as OpenAPIObject;
+	const openApiDoc = normalizeNullableUnions(
+		(await SwaggerParser.bundle(config.modifiedSpecPath)) as OpenAPIObject
+	);
 	const content = await generateZodClientFromOpenAPI({
 		openApiDoc: openApiDoc,
 		disableWriteToFile: true,

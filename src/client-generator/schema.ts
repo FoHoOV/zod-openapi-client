@@ -29,7 +29,7 @@ export const sharedOptionsSchema = z.object({
 				})
 			) as [RegExp, string][];
 		}),
-	skipSpecValidations: z.boolean({ coerce: true }).optional(),
+	skipSpecValidations: z.stringbool().optional(),
 	customizeOperationId: z
 		.string()
 		.optional()
@@ -62,20 +62,16 @@ export const sharedOptionsSchema = z.object({
 				| [`${Commands}`]
 			)[];
 		}),
-	overwriteExistingOperationIds: z.boolean({ coerce: true }).optional(),
+	overwriteExistingOperationIds: z.stringbool().optional(),
 	additionalOpenapitoolsOptions: z.string().optional()
 });
 
 export const optionsSchema = z.discriminatedUnion("client", [
-	sharedOptionsSchema.merge(
-		z.object({
-			client: z.literal("axios"),
-			axiosVersion: z.string()
-		})
-	),
-	sharedOptionsSchema.merge(
-		z.object({
-			client: z.literal("fetch")
-		})
-	)
+	sharedOptionsSchema.extend({
+		client: z.literal("axios"),
+		axiosVersion: z.string()
+	}),
+	sharedOptionsSchema.extend({
+		client: z.literal("fetch")
+	})
 ]);
